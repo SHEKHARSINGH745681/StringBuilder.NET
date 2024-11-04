@@ -1,23 +1,18 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System.Text;
+﻿using System;
 
-StringBuilder s = new StringBuilder("HELLOSHEKHAR", 20); //limit 20
+class PalindromeCheck
+{
+    public static bool IsPalindrome(string word)
+    {
+        //word ko lower case main kiya hai
+        word = word.ToLower();
+        return word == new string(word.Reverse().ToArray());
+    }
 
-//s.Append("Shekhar");
-
-//s.AppendLine("\n");//NEXT LINE
-//s.Append("HelloShekharSingh");
-
-// "shekhar" insert after 6th index 
-//s.Insert(6, "shekhar");
-
-
-//index 5 se remove hoga then 3 char. remove hoge
-//s.Remove(5, 3);
-
-// REPLACE MAIN EXIT WORD AND WRITE NEW WORD
-//s.Replace("SHEKHAR", "Geeks For");
-
-s.reverse();
-Console.WriteLine(s);
-
+    static void Main()
+    {
+        Console.Write("Enter a word: ");
+        string word = Console.ReadLine();
+        Console.WriteLine(IsPalindrome(word) ? "It's a palindrome." : "Not a palindrome.");
+    }
+}
